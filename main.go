@@ -1,13 +1,17 @@
 package main
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"go-ecommerce-app/config"
+	"go-ecommerce-app/internal/api"
+	"log"
 )
 
 func main() {
+	cfg, err := config.SetupEnv()
 
-	app := fiber.New()
+	if err != nil {
+		log.Fatalf("config file is not loaded properly %v\n", err)
+	}
 
-	app.Listen("localhost:9000")
-
+	api.StartServer(cfg)
 }
