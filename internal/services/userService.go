@@ -1,13 +1,19 @@
 package services
 
-import "go-ecommerce-app/internal/domain"
+import (
+	"go-ecommerce-app/internal/domain"
+	"go-ecommerce-app/internal/dto"
+	"log"
+)
 
 type UserService struct {
 }
 
-func (s UserService) Signup(input any) (string, error) {
+func (s UserService) Signup(input dto.UserSignup) (string, error) {
+	log.Println(input)
+
 	//any equal to empty interface
-	return "", nil
+	return "this-is-my-token-as-of-now", nil
 }
 
 func (s UserService) FindUserByEmail(email string) (*domain.User, error) {
