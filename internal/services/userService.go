@@ -16,7 +16,7 @@ func (s UserService) Signup(input dto.UserSignup) (string, error) {
 	return "this-is-my-token-as-of-now", nil
 }
 
-func (s UserService) FindUserByEmail(email string) (*domain.User, error) {
+func (s UserService) findUserByEmail(email string) (*domain.User, error) {
 	//perform some db operation
 	//business logic
 	return nil, nil

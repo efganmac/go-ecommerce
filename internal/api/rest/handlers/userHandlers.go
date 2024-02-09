@@ -10,7 +10,7 @@ import (
 
 type UserHandler struct {
 	// service UserService
-	svc services.UserService
+	svc services.UserService //services.UserService its not definition, it is value
 }
 
 func SetupUserRoutes(rh *rest.RestHandler) {
