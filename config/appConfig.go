@@ -8,6 +8,7 @@ import (
 
 type AppConfig struct {
 	ServerPort string
+	Dsn        string //data soruce name = Dsn
 }
 
 func SetupEnv() (cfg AppConfig, err error) {
@@ -19,5 +20,11 @@ func SetupEnv() (cfg AppConfig, err error) {
 		return AppConfig{}, errors.New("env validation is failed!")
 
 	}
-	return AppConfig{ServerPort: httpPort}, nil
+
+	Dsn := os.Getenv("DSN")
+	if len(Dsn) < 1 {
+		return AppConfig{}, errors.New("env validation is failed!")
+
+	}
+	return AppConfig{ServerPort: httpPort, Dsn: Dsn}, nil
 }
